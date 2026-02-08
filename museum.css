@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8e8e8, #fff6f2);
+  color: #3b2a2a;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+}
+
+.header p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Gallery */
+.gallery {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  transition: filter 0.6s ease;
+}
+
+.frame {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.frame:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Blur state */
+.blurred {
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  animation: popIn 0.6s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.dialog h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.dialog input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.dialog button {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.dialog button:hover {
+  transform: scale(1.05);
+}
+
+.hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.8rem;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bang Bang...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, #fff0f3, #ffd6e0);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      animation: popIn 0.8s ease;
+    }
+
+    h1 {
+      font-size: 4.5rem; /* ~72px */
+      color: #8b0000;
+      line-height: 1.2;
+      animation: shake 1.2s infinite;
+    }
+
+    .timer {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      opacity: 0.6;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>
+      THARKI, YE SAB BAATE YAHA KARU MAI???? <br>
+      CHIIIIIII
+    </h1>
+
+    <div class="timer">
+      Redirecting you back in <span id="countdown">5</span> seconds…
+    </div>
+  </div>
+
+  <script>
+    let timeLeft = 5;
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+
+      if (timeLeft === 0) {
+        clearInterval(timer);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
